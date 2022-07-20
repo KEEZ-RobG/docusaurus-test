@@ -9,7 +9,7 @@ const config = {
   title: 'Validator Resources',
   tagline: 'Validators are cool',
   url: 'https://keez-robg.github.io',
-  baseUrl: '/docusaurus-test',
+  baseUrl: 'docusaurus-test/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
