@@ -1,8 +1,9 @@
 ---
+title: 'About the guide'
 sidebar_position: 0
 slug: /
 ---
-# The LUKSO Community Validator Guide
+# Validator Guide
 
 The LUKSO blockchain offers a rare opportunity: participation in the launch of a highly decentralized blockchain, a sister to Ethereum 2.0 nonetheless!
 
@@ -16,8 +17,10 @@ Running up a validator node is a highly technical task and a long term commitmen
 L16 test net is live. If you are planning to run a validator for mainnet, start practicing ASAP!
 
 
-
-
+:::tip
+- Know the ***best practices***
+- Know what to do in the ***worst case scenarios***
+:::
 
 
 
