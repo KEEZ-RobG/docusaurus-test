@@ -16,7 +16,12 @@ slug: /
 - Open Help desk
 - Security / Mitigation
 - Education
-- Setup community involvement
+- Genesis NFT
+    - 3D asset
+    - Graffiti guide
+    - SC
+- Rep system on chain
+    - SC for GitHub and rep token
 :::
 
 The LUKSO blockchain offers a rare opportunity: participation in the launch of a highly decentralized blockchain, a sister to Ethereum 2.0 nonetheless!
