@@ -5,6 +5,20 @@ slug: /
 ---
 # Validator Guide
 
+:::danger Master ToDo
+- Finish 4 step guide
+- Finish site
+    - Links
+    - Logo
+    - Color
+    - Top bar
+- Present to community
+- Open Help desk
+- Security / Mitigation
+- Education
+- Setup community involvement
+:::
+
 The LUKSO blockchain offers a rare opportunity: participation in the launch of a highly decentralized blockchain, a sister to Ethereum 2.0 nonetheless!
 
 To participate in a proof-of-stake blockchain, you must run a node and validator software on your own hardware or a cloud platform. 

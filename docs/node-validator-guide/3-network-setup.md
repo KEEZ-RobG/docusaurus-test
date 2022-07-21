@@ -2,7 +2,11 @@
 title: "Step 3: Network Setup"
 sidebar_position: 3
 ---
-
+:::danger ToDo
+- Run through LUKSO steps
+- Write relevant explanations
+- grammerly
+:::
 # Step 3: LUKSO Network Setup
 
 ## About 

@@ -13,3 +13,12 @@ Configure SSH access from remote locations.
 We will be switching between two devices in this guide, your LUKSO node (the server) and a personal device (the client). They will be referred to as:
 * **node machine** (server)
 * **personal device** (client)
+
+:::danger ToDo
+- Research if VPN is better/easier
+- DDNS
+- SSH tunnel for monitoring??
+- Copy/Paste LAN Guide
+    - Change IP to url in LAN guide
+    - Open `<your port>` port on router
+:::

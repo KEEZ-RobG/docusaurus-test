@@ -2,7 +2,10 @@
 title: "Step 1: System Setup"
 sidebar_position: 1
 ---
-
+:::danger ToDo
+- Run
+- Grammerly
+:::
 # Step 1: System Setup
 
 In this section we will cover the hardware and operating system needed for running a node.

@@ -5,6 +5,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
+:::danger ToDo
+- Run
+- Grammerly
+:::
 # SSH (LAN only)
 Configure SSH access from you home network. 
 
@@ -88,6 +92,10 @@ Choose you device's operating system from the tabs below.
 <Tabs>
     <TabItem value="ubuntu" label="Ubuntu">
 
+:::danger ToDo
+- Run
+- Grammerly
+:::
 ## Configure Personal Device - Ubuntu
 The next steps will configure the client software on a personal device running Ubuntu. You will use this device to control your node remotely.
 
@@ -267,6 +275,14 @@ sudo systemctl restart NetworkManager
     <TabItem value="windows" label="Windows (PuTTY)">
 
 ## Configure Personal Device - Windows
+
+:::danger ToDo
+- Write
+- Run
+- Grammerly
+ 
+https://www.how2shout.com/how-to/how-to-login-into-ubuntu-using-ssh-from-windows-10-8-7.html
+:::
 The next steps will configure PuTTY (SSH client software) on a personal device running Windows. You will use this device to control your node remotely.
 
 ### Comming Soon
@@ -275,6 +291,9 @@ The next steps will configure PuTTY (SSH client software) on a personal device r
     <TabItem value="mac" label="Mac">
 
 ## Configure Personal Device - Mac
+:::danger ToDo
+- find someone with a mac
+:::
 The next steps will configure the client software on a personal device running Mac OS. You will use this device to control your node remotely.
 
 ### Comming Soon

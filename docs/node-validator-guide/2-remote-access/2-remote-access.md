@@ -2,7 +2,10 @@
 title: "Step 2: Remote Access "
 sidebar_position: 2
 ---
-
+:::note ToDo
+- Link to LV VPN
+- Grammerly
+:::
 # Step 2: Remote Access
 This step is optional. If you do not wish to access your node from a remote decice, proceed to Step 3.
 
