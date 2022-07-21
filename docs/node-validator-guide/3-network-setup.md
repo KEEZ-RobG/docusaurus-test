@@ -1,5 +1,5 @@
 ---
-title: "Step 3: Network Setup"
+title: "Step 3 - Network Setup"
 sidebar_position: 3
 ---
 :::danger ToDo
@@ -7,7 +7,7 @@ sidebar_position: 3
 - Write relevant explanations
 - grammerly
 :::
-# Step 3: LUKSO Network Setup
+# Step 3 - LUKSO Network Setup
 
 ## About 
 
@@ -25,12 +25,12 @@ A validator consists of a LUKSO node and a third piece of client software respon
 
 Please review all the information in the [Network](https://docs.lukso.tech/networks/l16-testnet/) section of LUKSO's website.
 
-## Step 3-1: Run a node
+## Step 3.1 - Run a node
 Follow LUKSO's official documentation for this step.
 
 [Run a node](https://docs.lukso.tech/networks/l16-testnet/run-node)
 
-## Step 3-2: Become a validator
+## Step 3.2 - Become a validator
 
 Follow LUKSO's official documentation for the next steps.
 

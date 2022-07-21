@@ -30,14 +30,19 @@ To participate in a proof-of-stake blockchain, you must run a node and validator
 
 This guide will walk you through every step of the process and provide some education along the way. It is for everyone, but created especially for people who are not highly technical. 
 
-## Start Now
-Running up a validator node is a highly technical task and a long term commitment. It's a responsibility to your investment and to the network. The network's **security and stability** depends on properly maintained nodes and validator software running 24/7.
+## Before you begin
+Running up a validator node is a highly technical task and a long term commitment. It's a responsibility to your investment and to the network. The network's **security and stability** depends on properly maintained nodes and validator software running 24/7. You will need to:
+- Have basic knowledge of LINUX
+- Be prepared to update your node whenever new client software is released
+- Be ready to learn
 
+## Start Now
 L16 test net is live. If you are planning to run a validator for mainnet, start practicing ASAP!
 
 
+
 :::tip
-- Know the ***best practices***
+- Know the ***best practices*** for operating a node
 - Know what to do in the ***worst case scenarios***
 :::
 

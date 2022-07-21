@@ -1,12 +1,12 @@
 ---
-title: "Step 1: System Setup"
+title: "Step 1 - System Setup"
 sidebar_position: 1
 ---
 :::danger ToDo
 - Run
 - Grammerly
 :::
-# Step 1: System Setup
+# Step 1 - System Setup
 
 In this section we will cover the hardware and operating system needed for running a node.
 
@@ -48,10 +48,10 @@ A backup system (or parts) is also something to consider. If your node is offlin
 ## Install OS
 For this guide, we will use Ubuntu 22.04 LTS Desktop operating system, which is most commonly used by the community.
 
-### 1-1 Install Ubuntu
+### 1.1 Install Ubuntu
 To install Ubuntu, following the <a href="https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#1-overview" target="_blank" rel="noopener">official Ubuntu's official guide.</a> Be sure to use a strong password when creating your user account.
 
-### 1-2 Configure Auto Start
+### 1.2 Configure Auto Start
 
 It is important to set up your node to power back automatically on after a power outage. The setting is usually found in the BIOS, but some systems use a jumper on the motherboard. Refer to your hardware manual for instructions.
 
@@ -63,7 +63,7 @@ For Intel NUC, follow these steps:
 
 Test the setting by unplugging the power cord while the system is running. It should turn on and boot when you plug it back in.
 
-### 1-3 Update System
+### 1.3 Update System
 :::note
 All text in the grey code boxes are to be copy/pasted into the Ubuntu Terminal
 :::
@@ -87,12 +87,12 @@ sudo apt-get install unattended-upgrades
 sudo dpkg-reconfigure -plow unattended-upgrades
 ```
 
-### 1-4 Install Dependencies
+### 1.4 Install Dependencies
 Nano is the command-line text editor used throughout this guide.
 ```
 sudo apt install -y nano wget make git
 ```
-### 1-5 Reserve Node IP Address
+### 1.5 Reserve Node IP Address
 
 :::note
 These steps will require access to your router's internal settings.
