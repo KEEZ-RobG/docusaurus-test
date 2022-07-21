@@ -52,7 +52,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'LUKSO Comm Docs',
+        title: 'LUKSO Community Docs',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
