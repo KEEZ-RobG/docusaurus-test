@@ -14,10 +14,10 @@ slug: /
     - Top bar
 - Present to community
 - Open Help desk
-- Security / Mitigation
-- Education
+- Security / Mitigation docs
+- Education docs
 - Genesis NFT
-    - 3D asset
+    - 3D asset for drop
     - Graffiti guide
     - SC
 - Rep system on chain
