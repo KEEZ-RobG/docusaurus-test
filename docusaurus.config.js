@@ -52,7 +52,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'LUKSO Community Docs',
+        title: 'LYXstakers',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',

@@ -1,15 +1,37 @@
 ---
-title: "LAN"
+title: "Part 2 - Security "
+sidebar_position: 2
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 
-:::danger ToDo
-- Run
+:::note ToDo
+
 - Grammerly
 :::
-# SSH (LAN only)
+# Part 2 - SSH Access
+
+## About
+
+SSH is a client-server architecture used to securely access the terminal of a server (your node) from a client (your personal computer). It is possible to install the desktop version of Ubuntu and operate a node like a normal computer with a keyboard, mouse and monitor attached. However, there are a number of reason to choose a server installation for you node.
+
+### Security
+
+Most importantly, it is best security practice to run **only** the software needed to operate a node. To setup, troubleshoot, and maintain your node, you will rely on a web browser to follow guides and chat applications (like Discord) for community support. With remote access, you can use these application from your personal computer, and simply copy/paste commands into the SSH terminal.
+
+### Performance
+
+Ubuntu Server uses less system resources than Ubuntu Desktop and allows your node software to utilize your hard ware to the fullest extent.
+
+### Convenience
+
+Your node should be **wired** to your network, not connected through WiFi. Remote access removes the need to keep a keyboard and monitor connect to you node and allows you to place your node hidden away near your router. Only two connections are needed, one to your router and one to an electrical outlet.
+
+Also, with SSH enabled, you can easily setup access to your from remote locations, allowing you to perform maintenance and troubleshooting from anywhere with an internet connection.
+
+
+# SSH Access
 Configure SSH access from you home network. 
 
 :::note
@@ -305,3 +327,7 @@ The next steps will configure the client software on a personal device running M
 Credits
 [Vlad's Guide](https://github.com/lykhonis/lukso-node-guide#auto-start)
 [Setup an Eth2 Mainnet Validator System on Ubuntu](https://github.com/metanull-operator/eth2-ubuntu)
+
+
+
+

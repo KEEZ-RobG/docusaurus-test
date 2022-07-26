@@ -1,5 +1,5 @@
 ---
-title: "Step 3 - Network Setup"
+title: "Part 3 - Network Setup"
 sidebar_position: 3
 ---
 :::danger ToDo
