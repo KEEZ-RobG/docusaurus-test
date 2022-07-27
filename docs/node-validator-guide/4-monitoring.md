@@ -4,7 +4,7 @@ sidebar_position: 4
 ---
 
 # Monitoring
-:::danger ToDo
+:::info ToDo
 - Copy Vlad's guide
 - Fix price
 - Add from other sources 

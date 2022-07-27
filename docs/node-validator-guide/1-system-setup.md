@@ -56,7 +56,7 @@ Usernames, passwords, and IP addresses will differ for each individual. The tabl
 
 |Variable data     |Part/Section|Syntax        |
 |------------------|------------|--------------|
-|Node user name    |[P1 1.2](#12---install-the-server)      |`<user-name>` |
+|Node user name    |[P1 1.2](#12---install-the-server)      |`<node-user>` |
 |Node password     |[P1 1.2](#12---install-the-server)      |`<password>`  |
 |Node IP address   |[P1 1.3](#13---determine-node-ip-address)|`<node-ip>`   |
 |Router IP address |[P1 4.1](#41---router-login)      |`<router-ip>` |
@@ -155,6 +155,30 @@ To copy commands from the guide, hover over the top right corner of the gray com
 Right-click anywhere inside the terminal window to paste the command.
 :::
   </TabItem>
+  <TabItem value="windows-ps" label="Windows PowerShell">
+
+#### 2.1 - Open PowerShell as administrator
+1. Press `Win+R` to open run
+1. Type `powershell`
+1. Press `Ctrl+Shift+Enter`
+
+ 
+
+#### 2.2 - Install OpenSSH
+Copy/Paste this command into PowerShell. To copy commands from the guide, hover over the top right corner of the gray command block and click the copy button. To paste into PowerShell, right-click anywhere in the PowerShell window.
+
+```powershell
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+```
+
+#### 2.3 - Connect to node
+1. Establish an SSH connection using a command with this syntax: `ssh <node-user>@<node-ip>`Example command: `ssh joe@192.168.1.5`
+2. Type `yes` and press `Enter` when prompted with the authenticity warning.
+3. Enter the node user's password
+
+You should now see the same command prompt you used while directly interacting with your node machine in the previous steps.
+
+  </TabItem>
   <TabItem value="macOS" label="macOS">
 
 #### 2.1 - Open terminal
@@ -190,11 +214,15 @@ sudo apt-get update -y && sudo apt dist-upgrade -y
 sudo apt-get autoremove
 sudo apt-get autoclean
 ```
+
+If a "Deamons using outdated libraries" screen appears, restart all.
+
 ### 3.2 - Enable automatic updates
 ```
 sudo apt-get install unattended-upgrades
 sudo dpkg-reconfigure -plow unattended-upgrades
 ```
+Choose yes and press `Enter`
 
 ### 3.3 Install Dependencies
 Nano is the command-line text editor used throughout this guide.
@@ -206,7 +234,7 @@ sudo apt install -y nano wget make git
 Address reservation ensures your router always assigns the same IP address to your node. 
 
 ### 4.1 - Router Login
-Determine your router's IP address
+Determine your router's IP address.
 ```markdown title="copy/paste this command"
 netstat -nr | awk '$1 == "0.0.0.0"{print$2}'
 ```
