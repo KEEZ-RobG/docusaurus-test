@@ -81,14 +81,15 @@ rm -rf node_exporter-1.3.1.linux-amd64
 ```
 
 ### Configure system service
+Create a node explorer configuration file.
 
-```shell=
+```shell title="execute the command"
 sudo nano /etc/systemd/system/node_exporter.service
 ```
 
-The content of service configuration file:
+Add the following to the file, then save and quit.
 
-```
+```shell title="contents of /etc/systemd/system/node_exporter.service"
 [Unit]
 Description=Node Exporter
 
@@ -102,7 +103,6 @@ ExecStart=/usr/local/bin/node_exporter
 [Install]
 WantedBy=multi-user.target
 ```
-
 ### Enable service
 
 Release systemd to reflect the changes
