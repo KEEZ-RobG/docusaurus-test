@@ -1,0 +1,11 @@
+## PowerShell SSH
+
+Run PS as admin
+`Win+R`, type `powershell`, `Ctrl+Shift+Enter`
+
+# Install the OpenSSH Client
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+
+`ssh <node-user>@<node-ip>`
+
+
