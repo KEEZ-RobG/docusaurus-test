@@ -15,9 +15,9 @@ L16 test net is live. If you are planning to run a validator for mainnet, start 
 
 ## LYXstaker
 
-LYXstaker is a resource for LUKSO validators created, and maintained, by the community. It is a non-profit community good for providing guidance and support to solo stakers of all skill levels. 
+LYXstaker is a resource for LUKSO validators created and maintained, by the community. It is a non-profit community good for providing guidance and support to solo stakers of all skill levels. 
 
-Inspired by the [Ethstaker](ethstaker.cc) community, whose motto is **"Welcoming first, knowledgeable second,"** LYXstaker is committed to
+Inspired by the [Ethstaker](https://ethstaker.cc/) community, whose motto is **"Welcoming first, knowledgeable second,"** LYXstaker is committed to
 - a friendly and welcoming environment
 - **best security practices**
 - providing education
