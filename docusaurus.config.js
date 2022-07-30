@@ -60,9 +60,21 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'about/intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'About',
+          },
+          {
+            type: 'doc',
+            docId: 'node-validator-guide/start-here',
+            position: 'left',
+            label: 'THE Guide',
+          },
+          {
+            type: 'doc',
+            docId: 'other-guides/vpn',
+            position: 'left',
+            label: 'Other Guides',
           },
           {
             href: 'https://github.com/LYXstaker',
@@ -78,8 +90,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/',
+                label: 'THE Guide',
+                to: '/node-validator-guide/start-here',
               },
             ],
           },
