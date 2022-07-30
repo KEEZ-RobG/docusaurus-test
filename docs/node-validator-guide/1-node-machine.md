@@ -82,18 +82,23 @@ Using Server + remote SSH access from a personal computer instead of directly at
 ### 1.2 - Install the server
 
 1. Attach a monitor and keyboard to your node machine. 
-2. Follow [Ubuntu's official guide](https://ubuntu.com/tutorials/install-ubuntu-server#1-overview) to install the operating system. After step 14 is complete, and the system reboots, you should see a login screen:
-3. Login with the username and password created during the installation.
+2. Follow [Ubuntu's official guide](https://ubuntu.com/tutorials/install-ubuntu-server#1-overview) to install the operating system. After step 14 is complete, and the system reboots, you should see a login screen.
+  ![1.2.2](./img-p1/1.2.2.png)
+1. Login with the username and password created during the installation. You should see a `$` prompt.
+
+ ![1.2.3](./img-p1/1.2.3.png)
  
 
 
 ## Step 2 - Configure Settings
-
+These steps will need to be typed into your node terminal to prepare for remote access. In part two, we will be able to copy/paste all commands.
 
 ### 2.1 - Open the SSH config file
-```
+```sh title="type this this command, press enter"
 sudo nano /etc/ssh/sshd_config
 ```
+![2.1-nano-command](./img-p1/2.1.gif)
+
 ### 2.2 - Change SSH Port Number
 
 The default SSH port (22) should be changed to a random number for security reasons.
@@ -102,80 +107,88 @@ The default SSH port (22) should be changed to a random number for security reas
 2. Remove the `#`
 3. Choose a number between 1024 thru 49141
 4. Replace `22` with your number
-5. Remain in the editor
+5. Close editor by pressing `ctrl` + `X`, then save.
+
+In this example, we are using port 1025
+![2.2-edit-config](./img-p1/2.2.gif)
 
 :::note
 For the rest of this guide when you see `<ssh-port>` replace it with the number you chose in this step.
 :::
 
-Close editor by pressing `ctrl` + `X`, then save.
 
 ### 2.3 - Configure firewall
 
-By default deny all traffic:
+#### 1 - By default deny all traffic
 
-```
+```sh title="type these command (one at a time)"
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ```
-
-### 2.4 - Allow SSH access
-
-```sh title="replace <ssh-port> with you port number"
+The output of the commands
+![2.3.1-output](./img-p1/2.3.1.png
+)
+#### 2 - Allow SSH access
+For this command, replace `<ssh-port>` with the number you chose in step 2.2
+```sh title="this this command"
 sudo ufw allow <ssh-port>/tcp
 ```
+The output of the command
+![2.3.2-output](./img-p1/2.3.2.png)
 
-
-### 2.5 - Enable firewall
-```
+#### 3 - Enable firewall
+```sh title="this this command"
 sudo ufw enable
 ```
-
+The output of the command
+![2.3.3-output](./img-p1/2.3.3.png)
 
 ## Step 3 - Configure Auto Start
 
 It is important to set up your node to power on automatically after a power outage. The setting is usually found in the BIOS, but some systems use a jumper on the motherboard. Refer to your hardware manual for instructions.
-### 3.1 - Shut down node machine
-```
+### 3.1 - Shut down the node machine
+```sh title="type this command"
 sudo shutdown -h now
 ```
 ### 3.2 - Configure BIOS
+To enter the BIOS, you must press a key on the keyboard just after the machine is powered on. It is often `F2` but can vary from system to system.
+
 For Intel NUC, follow these steps:
 1. Power on your node machine
-1. Press F2 before the server boots to enter BIOS setup
-2. Go to `Power` -> `Secondary Power Settings` menu
-3. Set the option for `After Power Failure` to `Power On`
-4. Press F10 to save changes and exit BIOS
+2. Press F2 before the server boots to enter BIOS setup
+3. Go to `Power` -> `Secondary Power Settings` menu
+4. Set the option for `After Power Failure` to `Power On`
+5. Press F10 to save changes and exit BIOS
+6. All you system to boot back to the login screen
 
 ### 3.3 - Test Settings
 Test the setting by unplugging the power cord while the system is running. It should turn on and boot when you plug it back in.
 
 
 ## Step 4 - Reserve Node IP Address
-Address reservation ensures your router always assigns the same IP address to your node.
+Address reservation ensures your router always assigns the same IP address to your node. This step will require logging into the settings screen of your router. The steps are different for each manufacturer.
 
-### 4.1 - Determine node IP address
-We will need to know the node's IP address for the next step in the guide.
+For these step, you will need your node machine and personal computer.
 
-Type` hostname -I` on the command line to determine the IP address of your node.
-
-### 4.2 - Log in to router
+### 4.1 - Log in to router
+1. Log in to your node machine
 1. Determine your router's IP address.
-```markdown title="copy/paste this command"
-netstat -nr | awk '$1 == "0.0.0.0"{print$2}'
+```sh title="type this command"
+ip route show default
 ```
-2. Open a web browser on your personal computer and enter your router's IP address.
+3. Open a web browser on your personal computer and enter your router's IP address.
 
 A username and password prompt will appear. You will need to reset your router to its default setting if you do not know your credential. Refer to your router manual for instructions.
 
-### 4.3 - Configure Router
-1. Find the IP address of your node:
-```markdown title="copy/paste this command"
+### 4.2 - Configure Router
+1. Find the IP address of your node
+```sh title="type this command"
 hostname -I
 ```
 2. Find the setting for reserving IP addresses. “DHCP Settings” or “DHCP Reservation” are common terms. Refer to your router’s manual for specific instructions.
 
 3. Configure the router to reserve this address
+4. Save the settings
 
 
 
