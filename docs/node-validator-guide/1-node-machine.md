@@ -125,7 +125,7 @@ For the rest of this guide when you see `<ssh-port>` replace it with the number 
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ```
-The output of the commands
+Verify the output of the commands
 ![2.3.1-output](./img-p1/2.3.1.png
 )
 #### 2 - Allow SSH access
@@ -133,15 +133,22 @@ For this command, replace `<ssh-port>` with the number you chose in step 2.2
 ```sh title="type this this command"
 sudo ufw allow <ssh-port>/tcp
 ```
-The output of the command
+Verify the output of the command
 ![2.3.2-output](./img-p1/2.3.2.png)
 
 #### 3 - Enable firewall
 ```sh title="type this this command"
 sudo ufw enable
 ```
-The output of the command
+Verify the output of the command
 ![2.3.3-output](./img-p1/2.3.3.png)
+
+#### 4 - Confirm firewall settings
+```sh title="type this this command"
+sudo ufw status
+```
+Verify the output of the command
+![2.3.4-output](./img-p1/2.3.4.png)
 
 ## Step 3 - Configure Auto Start
 
