@@ -17,7 +17,7 @@ If you installed Ubuntu Desktop and do not plan to control your node from a pers
 
 The next steps will configure Windows PowerShell. You will use this device to control your node remotely.
 
-#### Step 1: Open Terminal as administrator
+#### Step 1 - Open Terminal as administrator
 
 1. Search windows for the Terminal application
 1. Right-click --> Run as administrator
@@ -26,19 +26,80 @@ The next steps will configure Windows PowerShell. You will use this device to co
 🔗[This guide has instruction for configuring Windows Terminal to run as administrator by default.](https://pureinfotech.com/always-run-windows-terminal-administrator-windows-10/#always_open_terminal_admin_settings) 
 :::
 
-#### Step 2: Install OpenSSH
+#### Step 2 - Install OpenSSH
 Copy/Paste this command into Terminal. To copy commands from the guide, hover over the top right corner of the gray command block and click the copy button. To paste into Terminal, right-click anywhere in the Terminal window.
 
 ```powershell
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 ```
 
-#### Step 3: Connect to node
-1. Establish an SSH connection using a command with this syntax: `ssh <node-user>@<node-ip>`Example command: `ssh joe@192.168.1.5`
+#### Step 3 - Connect to node
+1. Execute the command to test the SSH connection
+
+```sh title="user-specific command - do not copy/paste"
+ssh <node-user>@<node-ip> -p <ssh-port>
+```
+
+```sh title="example command"
+ssh node@192.168.0.150 -p 1025
+```
+
 2. Type `yes` and press `Enter` when prompted with the authenticity warning.
+
 3. Enter the node user's password
 
-You should now see the same command prompt you used while directly interacting with your node machine in the previous steps.
+You should now see your node's command line.
+
+The output should look like this
+
+4. Disconnect from node machine
+```sh
+exit
+```
+
+#### Step 4 - Generate SSH Keys
+
+```sh
+ssh-keygen -t rsa -b 4096
+```
+
+- When prompted for "file in which to save," press `Enter`
+
+- The passphrase is optional, but it is a good idea.
+
+#### Step 5 - Copy SSH keys to node machine
+Replace `<node-user>`, `<node-ip>`, and `<ssh-port>` with your information
+
+```sh title="user-specific do not copy/paste"
+cat ~/.ssh/id_rsa.pub | ssh <node-user>@<node-ip> -p <ssh-port> "cat >> ~/.ssh/authorized_keys"
+```
+
+```sh title="example command"
+cat ~/.ssh/id_rsa.pub | ssh node@192.168.0.150 -p 1025 "cat >> ~/.ssh/authorized_keys"
+```
+
+#### Step 4: Simplify connection
+We will create a config file to simplify the ssh command to `ssh lukso`
+
+1. Open the config file in notepad
+```
+notepad.exe $env:userprofile\.ssh\config
+```
+
+2. Click "yes" when prompted to create a new file.
+
+3. Copy/paste the text to notepad, then replace the user-specifit information
+
+```sh title=\.ssh\config
+Host lukso
+  User <node-user>
+  HostName <node-ip>
+  Port <ssh-port>
+```
+
+4. Save and close the file.
+
+
 
   </TabItem>
   <TabItem value="Windows" label="Windows (Putty)">
