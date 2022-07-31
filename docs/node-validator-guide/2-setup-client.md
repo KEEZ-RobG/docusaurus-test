@@ -27,7 +27,7 @@ The next steps will configure Windows PowerShell. You will use this device to co
 :::
 
 #### Step 2: Install OpenSSH
-Copy/Paste this command into PowerShell. To copy commands from the guide, hover over the top right corner of the gray command block and click the copy button. To paste into PowerShell, right-click anywhere in the PowerShell window.
+Copy/Paste this command into Terminal. To copy commands from the guide, hover over the top right corner of the gray command block and click the copy button. To paste into Terminal, right-click anywhere in the Terminal window.
 
 ```powershell
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
