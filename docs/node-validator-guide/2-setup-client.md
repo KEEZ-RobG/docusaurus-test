@@ -4,16 +4,43 @@ import Admonition from '@theme/Admonition';
 
 
 
-# Part 2 - Configure SSH Client
+# Part 2 - Configure SSH
+In this guide we will configure and secure the SSH connection between you personal computer and node machine.
 :::note
-If you installed Ubuntu Desktop, skip to step 3 and run commands in the desktop terminal application.
+If you installed Ubuntu Desktop and do not plan to control your node from a personal computer, skip to step 3.
 :::
 
-This step will establish a basic SSH connection from your personal computer to your node. 
-
-Choose the operating system of your personal computer below for the correct instructions.
+### Choose your personal computer's operating system
 
 <Tabs>
+<TabItem value="windows-terminal" label="Windows Terminal">
+
+The next steps will configure Windows PowerShell. You will use this device to control your node remotely.
+
+#### Step 1: Open Terminal as administrator
+
+1. Search windows for the Terminal application
+1. Right-click --> Run as administrator
+
+:::tip
+🔗[This guide has instruction for configuring Windows Terminal to run as administrator by default.](https://pureinfotech.com/always-run-windows-terminal-administrator-windows-10/#always_open_terminal_admin_settings) 
+:::
+
+#### Step 2: Install OpenSSH
+Copy/Paste this command into PowerShell. To copy commands from the guide, hover over the top right corner of the gray command block and click the copy button. To paste into PowerShell, right-click anywhere in the PowerShell window.
+
+```powershell
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+```
+
+#### Step 3: Connect to node
+1. Establish an SSH connection using a command with this syntax: `ssh <node-user>@<node-ip>`Example command: `ssh joe@192.168.1.5`
+2. Type `yes` and press `Enter` when prompted with the authenticity warning.
+3. Enter the node user's password
+
+You should now see the same command prompt you used while directly interacting with your node machine in the previous steps.
+
+  </TabItem>
   <TabItem value="Windows" label="Windows (Putty)">
 
 The next steps will configure PuTTY (SSH client software) on a personal device running Windows. You will use this device to control your node remotely.
@@ -86,32 +113,6 @@ Create a profile to save you connection information.
 Now you can log in to your node and you will not be prompted for a password. However, if you had set a passphrase on your public key, you will be asked to enter the passphrase at that time (and every time you log in, in the future).
 
 :::
-  </TabItem>
-  <TabItem value="windows-ps" label="Windows PowerShell">
-
-The next steps will configure Windows PowerShell. You will use this device to control your node remotely.
-
-#### Step 1: Open PowerShell as administrator
-1. Press `Win+R` to open run
-1. Type `powershell`
-1. Press `Ctrl+Shift+Enter`
-
- 
-
-#### Step 2: Install OpenSSH
-Copy/Paste this command into PowerShell. To copy commands from the guide, hover over the top right corner of the gray command block and click the copy button. To paste into PowerShell, right-click anywhere in the PowerShell window.
-
-```powershell
-Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
-```
-
-#### Step 3: Connect to node
-1. Establish an SSH connection using a command with this syntax: `ssh <node-user>@<node-ip>`Example command: `ssh joe@192.168.1.5`
-2. Type `yes` and press `Enter` when prompted with the authenticity warning.
-3. Enter the node user's password
-
-You should now see the same command prompt you used while directly interacting with your node machine in the previous steps.
-
   </TabItem>
   <TabItem value="macOS" label="macOS">
 
