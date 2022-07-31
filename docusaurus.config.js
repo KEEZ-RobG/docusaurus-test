@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Validator Resources',
   tagline: 'Validators are cool',
-  url: 'https://lyxstaker.github.io/docs/',
+  url: 'https://lyxstaker.github.io/',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
