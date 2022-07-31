@@ -130,14 +130,14 @@ The output of the commands
 )
 #### 2 - Allow SSH access
 For this command, replace `<ssh-port>` with the number you chose in step 2.2
-```sh title="this this command"
+```sh title="type this this command"
 sudo ufw allow <ssh-port>/tcp
 ```
 The output of the command
 ![2.3.2-output](./img-p1/2.3.2.png)
 
 #### 3 - Enable firewall
-```sh title="this this command"
+```sh title="type this this command"
 sudo ufw enable
 ```
 The output of the command
@@ -147,7 +147,7 @@ The output of the command
 
 It is important to set up your node to power on automatically after a power outage. The setting is usually found in the BIOS, but some systems use a jumper on the motherboard. Refer to your hardware manual for instructions.
 ### 3.1 - Shut down the node machine
-```sh title="type this command"
+```sh title="type type this command"
 sudo shutdown -h now
 ```
 ### 3.2 - Configure BIOS
