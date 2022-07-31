@@ -78,27 +78,17 @@ cat ~/.ssh/id_rsa.pub | ssh <node-user>@<node-ip> -p <ssh-port> "cat >> ~/.ssh/a
 cat ~/.ssh/id_rsa.pub | ssh node@192.168.0.150 -p 1025 "cat >> ~/.ssh/authorized_keys"
 ```
 
-#### Step 4: Simplify connection
-We will create a config file to simplify the ssh command to `ssh lukso`
+#### Step 6: Simplify connection
+We will create a desktop icon to simplify logging into your node
 
-1. Open the config file in notepad
+1. Right-click on the Windows desktop --> new -->  shortcut
+2. In the "Type the location of the item" box, paste the command below. Replace the user-specific information.
 ```
-notepad.exe $env:userprofile\.ssh\config
+wt ssh <node-user>@<node-ip> -p <ssh-port>
 ```
+3. Choose any name for the shortcut.
 
-2. Click "yes" when prompted to create a new file.
-
-3. Copy/paste the text to notepad, then replace the user-specifit information
-
-```sh title=\.ssh\config
-Host lukso
-  User <node-user>
-  HostName <node-ip>
-  Port <ssh-port>
-```
-
-4. Save and close the file.
-
+You should now have an icon on your desktop that will automatcially open the SSH connection to your node machine.
 
 
   </TabItem>
