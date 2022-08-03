@@ -84,17 +84,32 @@ Using Server + remote SSH access from a personal computer instead of directly at
 1. Attach a monitor and keyboard to your node machine. 
 2. Follow [Ubuntu's official guide](https://ubuntu.com/tutorials/install-ubuntu-server#1-overview) to install the operating system. After step 14 is complete, and the system reboots, you should see a login screen.
   ![1.2.2](./img-p1/1.2.2.png)
-1. Login with the username and password created during the installation. You should see a `$` prompt.
+3. Login with the username and password created during the installation. After a successful login, you should see a `$` prompt.
 
  ![1.2.3](./img-p1/1.2.3.png)
  
+4. Update the server with these three commands before proceeding. Type the command --> press `Enter`.
 
+```
+sudo apt update
+```
+```
+sudo apt upgrade -y
+```
+```
+sudo apt install -y 
+```
+
+5. Install the editor we will to make changes to files
+```
+nano wget make git
+```
 
 ## Step 2 - Configure Settings
 These steps will need to be typed into your node terminal to prepare for remote access. In part two, we will be able to copy/paste all commands.
 
 ### 2.1 - Open the SSH config file
-```sh title="type this this command, press enter"
+```
 sudo nano /etc/ssh/sshd_config
 ```
 ![2.1-nano-command](./img-p1/2.1.gif)
@@ -116,6 +131,12 @@ In this example, we are using port 1025
 For the rest of this guide when you see `<ssh-port>` replace it with the number you chose in this step.
 :::
 
+6. Validate SSH configuration and restart ssh service.
+
+```
+sudo sshd -t
+sudo systemctl restart sshd
+```
 
 ### 2.3 - Configure firewall
 
@@ -130,21 +151,21 @@ Verify the output of the commands
 )
 #### 2 - Allow SSH access
 For this command, replace `<ssh-port>` with the number you chose in step 2.2
-```sh title="type this this command"
+```sh title="type this command"
 sudo ufw allow <ssh-port>/tcp
 ```
 Verify the output of the command
 ![2.3.2-output](./img-p1/2.3.2.png)
 
 #### 3 - Enable firewall
-```sh title="type this this command"
+```sh title="type this command"
 sudo ufw enable
 ```
 Verify the output of the command
 ![2.3.3-output](./img-p1/2.3.3.png)
 
 #### 4 - Confirm firewall settings
-```sh title="type this this command"
+```sh title="type this command"
 sudo ufw status
 ```
 Verify the output of the command

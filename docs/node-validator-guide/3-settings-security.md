@@ -2,19 +2,34 @@
 
 # Part 3 - Settings & Security
 
-#### 4.3 Disable root and password log in:
+## 3.1 Configure SSH server
 
+### Open the configuration file:
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+###
 1. Change `ChallengeResponseAuthentication` to `no`
 2. Change `PasswordAuthentication` to `no`
 3. Change `PermitRootLogin` to `prohibit-password`
 4. Change `PermitEmptyPasswords` to `no`
 5. Save and exit by pressing `Ctrl + X`, then `y` , then `Enter`
  
-Validate SSH configuration and restart ssh service.
+#### Validate SSH configuration and restart ssh service.
 
 ```
 sudo sshd -t
 sudo systemctl restart sshd
+```
+
+Close the ssh session
+
+```
+exit
+```
+
+Reconnect to verify remote a
 
 ### update
 #### Manually update the system
