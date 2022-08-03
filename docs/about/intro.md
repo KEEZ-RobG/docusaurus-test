@@ -15,7 +15,7 @@ L16 test net is live. If you are planning to run a validator for mainnet, start 
 
 ## LYXstaker
 
-LYXstaker is a resource for LUKSO validators created and maintained, by the community. It is a non-profit community good for providing guidance and support to solo stakers of all skill levels. 
+LYXstaker is a resource for LUKSO validators created and maintained by the community. It is a community good for providing guidance and support to solo stakers of all skill levels. 
 
 Inspired by the [Ethstaker](https://ethstaker.cc/) community, whose motto is **"Welcoming first, knowledgeable second,"** LYXstaker is committed to
 - a friendly and welcoming environment
@@ -26,17 +26,17 @@ Inspired by the [Ethstaker](https://ethstaker.cc/) community, whose motto is **"
   
 ## Docs
 
-LYXstaker docs strives to be a knowledge base of quality-controlled infromation authored by reputable members of the community. Eventually, the information will be certified by an on-chain goveranance.
+LYXstaker docs strives to be a knowledge base of quality-controlled information authored by reputable members of the community. Eventually, the information will be certified by an on-chain governance.
 
-## Roadmap
+## Roadmap/Ideas
 
 In no particular order
 
 - THE Guide
 - Discord channel
-- Website improvments
-- GitHub guide
-- Quality control system
+- Website improvements
+- GitHub guide for contributors
+- Quality control protocol
 - Additional Documentation
     - Education
     - Security
@@ -60,7 +60,7 @@ LYXstaker development relies on the community. Help is needed for
     - Auditing
 - Graphics
 - Web development
-- Smart contract development
+- Smart contract development for genesis NFT
 
 
 

@@ -65,7 +65,7 @@ const config = {
             type: 'doc',
             docId: 'node-validator-guide/start-here',
             position: 'left',
-            label: 'THE Guide',
+            label: 'THE Guide - DO NOT USE',
           },
           {
             type: 'doc',
@@ -87,7 +87,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'THE Guide',
+                label: 'THE Guide - DO NOT USE',
                 to: '/node-validator-guide/start-here',
               },
             ],
