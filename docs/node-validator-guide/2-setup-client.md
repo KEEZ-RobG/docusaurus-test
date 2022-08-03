@@ -71,10 +71,6 @@ Replace `<node-user>`, `<node-ip>`, and `<ssh-port>` with your information
 cat ~/.ssh/id_rsa.pub | ssh <node-user>@<node-ip> -p <ssh-port> "cat >> ~/.ssh/authorized_keys"
 ```
 
-```sh title="example command"
-cat ~/.ssh/id_rsa.pub | ssh node@192.168.0.150 -p 1025 "cat >> ~/.ssh/authorized_keys"
-```
-
 #### Step 6: Simplify connection
 We will create a desktop icon to simplify logging into your node
 
