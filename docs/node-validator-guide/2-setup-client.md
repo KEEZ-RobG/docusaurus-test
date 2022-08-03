@@ -50,6 +50,7 @@ exit
 ```
 
 #### Steps 1 - 3 Example
+![1-3 Example](./img-p2/win01-03.gif)
 
 
 
@@ -66,7 +67,7 @@ ssh-keygen -t rsa -b 4096
 #### Step 5 - Copy SSH keys to node machine
 Replace `<node-user>`, `<node-ip>`, and `<ssh-port>` with your information
 
-```sh title="user-specific do not copy/paste"
+```
 cat ~/.ssh/id_rsa.pub | ssh <node-user>@<node-ip> -p <ssh-port> "cat >> ~/.ssh/authorized_keys"
 ```
 
