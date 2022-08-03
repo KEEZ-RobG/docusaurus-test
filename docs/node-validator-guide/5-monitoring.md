@@ -1,13 +1,8 @@
 
 
 # Part 5 - Monitoring
-:::info ToDo
-- Copy Vlad's guide
-- Fix price
-- Add from other sources 
-:::
 
-This guide is meant for people with no or little experience in monitoring. It will show you step by step how to do monitoring on your machine by giving you the instructions to install and configure all the tools needed. It will assume you are using a modern linux distribution with systemd and APT (like Ubuntu 20.04) on a modern x86 CPU (Intel, AMD).
+This guide will show you step by step how to do monitoring on your machine by giving you the instructions to install and configure all the tools needed. 
 
 ## Why would you want to do monitoring?
 
@@ -31,11 +26,9 @@ We will install 5 tools with this guide:
 
 - [Grafana](https://grafana.com/oss/grafana/) - queries Prometheus for metrics, displays the information on "dashboards," and provides alerts when data is abnormal.
 
-Connect to your node machine and proceed to the next step
-```
-ssh lukso
-```
-## 4-1: Node Exporter
+Connect to your node machine and proceed to the next step.
+
+## Step 1 - Node Exporter
 
 Node_exporter
 
@@ -45,49 +38,45 @@ Node_exporter
 
 ---
 
-### Add a user
+### 1.1 - Add a user
 
 ```
 sudo adduser --system node_exporter --group --no-create-home
 ```
 
-### Install
+### 1.2 - Install
+
+#### Download Node Exporter
 
 Check https://prometheus.io/download/#node_exporter to make sure 1.3.1 is the latest stable. As of this writing, 1.4.0 was still in pre-release.
 ```
 wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
 ```
 
-Verify the SHA256 checksum
-Go to https://prometheus.io/download/#node_exporter and confirm the output of this command matches the checksum listed on the download page.
-```
-sha256sum node_exporter-1.3.1.linux-amd64.tar.gz
-```
-
-Extract the archive
+#### Extract the archive
 ```
 tar xzvf node_exporter-1.3.1.linux-amd64.tar.gz
 ```
 
-Copy the binary to the following location and set ownership
+#### Copy the binary to the following location and set ownership
 ```
 sudo cp node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
 sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter
 ```
 
-Clean up
+#### Clean up
 ```rm node_exporter-1.3.1.linux-amd64.tar.gz
 rm -rf node_exporter-1.3.1.linux-amd64
 ```
 
-### Configure system service
-Create a node explorer configuration file.
+### 1.3 - Configure the system service
+#### Create a node explorer configuration file.
 
-```shell title="execute the command"
+```
 sudo nano /etc/systemd/system/node_exporter.service
 ```
 
-Add the following to the file, then save and quit.
+#### Add the following to the file, then save and quit.
 
 ```shell title="contents of /etc/systemd/system/node_exporter.service"
 [Unit]
@@ -103,59 +92,40 @@ ExecStart=/usr/local/bin/node_exporter
 [Install]
 WantedBy=multi-user.target
 ```
-### Enable service
+### 1.4 - Enable the service
 
-Release systemd to reflect the changes
+#### Refresh systemd to reflect the changes
 ```
 sudo systemctl daemon-reload
 ```
 
-Start and check the status of the service
+#### Start and check the status of the service
 ```
 sudo systemctl start node_exporter
-sudo systemctl status node_exporter
+sudo systemctl is-active node_exporter
 ```
 
-The output of the status should say "active (running)" in green.
+The output should be
 ```
-● node_exporter.service - Node Exporter
-     Loaded: loaded (/etc/systemd/system/node_exporter.service; disabled; vendo>
-     Active: active (running) since Wed 2021-08-04 10:48:25 EDT; 4s ago
-   Main PID: 10984 (node_exporter)
-      Tasks: 5 (limit: 18440)
-     Memory: 2.4M
-     CGroup: /system.slice/node_exporter.service
-             └─10984 /usr/local/bin/node_exporter
-
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
-Aug 04 10:48:25 remy-MINIPC-PN50 node_exporter[10984]: level=info ts=2021-08-04>
+active
 ```
-Press `q` to quit
 
-Set Node Exporter to start on boot
+#### Set Node Exporter to start on boot
 ```
 sudo systemctl enable node_exporter
 ```
 
-## 4-2: Json Exporter
+## Step 2 - Json Exporter
 
-#### Prerequisites 
+### 2.1 -  Prerequisites 
 
-Check `go` version if installed:
+#### Check `go` version and install if needed:
 
-```shell=
+```
 go version
 ```
 
-If it is less than `1.17.7` please install following:
+If it is less than `1.17.7` install the following:
 
 ```shell=
 wget https://dl.google.com/go/go1.17.7.linux-amd64.tar.gz
@@ -166,15 +136,15 @@ sudo ln -sf /usr/local/go-1.17.7/bin/go /usr/bin/go
 go version
 ```
 
-#### Build and Install
 
-User:
+
+### 2.2 - Add user
 
 ```shell=
 sudo adduser --system json_exporter --group --no-create-home
 ```
 
-Install:
+### 2.3 - Install
 
 ```shell=
 cd
@@ -187,20 +157,21 @@ cd
 rm -rf json_exporter
 ```
 
-#### Configure
+### 2.4 - Configure
 
-```shell=
+#### Create directory and set ownership
+```
 sudo mkdir /etc/json_exporter
 sudo chown json_exporter:json_exporter /etc/json_exporter
 ```
 
-Setup `LYX` token price:
+#### Setup `LYX` token price:
 
-```shell=
+```
 sudo nano /etc/json_exporter/json_exporter.yml
 ```
 
-The content of configuration file:
+Copy/paste the content of configuration file.
 
 ```
 metrics:
@@ -209,19 +180,21 @@ metrics:
   help: Lukso (LYX) price in USD
 ```
 
-Change ownership of configuration file:
+Save and exit
+
+#### Change ownership of configuration file:
 
 ```shell=
 sudo chown json_exporter:json_exporter /etc/json_exporter/json_exporter.yml
 ```
 
-#### Configure Service
+#### - Configure service
 
 ```shell=
 sudo nano /etc/systemd/system/json_exporter.service
 ```
 
-The content of service configuration file:
+Copy/paste the content of configuration file.
 
 ```
 [Unit]
@@ -238,7 +211,7 @@ ExecStart=/usr/local/bin/json_exporter --config.file /etc/json_exporter/json_exp
 WantedBy=multi-user.target
 ```
 
-Enable service:
+### 2.5 - Enable service:
 
 ```shell=
 sudo systemctl daemon-reload
@@ -246,15 +219,16 @@ sudo systemctl start json_exporter
 sudo systemctl enable json_exporter
 ```
 
-## 4-3: Blackbox Exporter
+## Step 3 - Blackbox Exporter
 
-Pings google and cloudflare to track latency. This is optional.
+Blackbox exporter pings google and cloudflare to track latency.
 
+### 3.1 - Add a user for the service
 ```shell=
 sudo adduser --system blackbox_exporter --group --no-create-home
 ```
 
-Install:
+### 3.2 - Install
 
 ```shell=
 cd
@@ -267,26 +241,28 @@ rm blackbox_exporter-0.18.0.linux-amd64.tar.gz
 rm -rf blackbox_exporter-0.18.0.linux-amd64
 ```
 
-Enable ping permissions:
+### 3.3 - Enable ping permissions
 
-```shell=
+```
 sudo setcap cap_net_raw+ep /usr/local/bin/blackbox_exporter
 ```
 
-#### Configure
+### 3.4 - Configure the exporter
 
-```shell=
+#### Create directory and assign ownership
+```
 sudo mkdir /etc/blackbox_exporter
 sudo chown blackbox_exporter:blackbox_exporter /etc/blackbox_exporter
 ```
 
-```shell=
+#### Open configuration file
+```
 sudo nano /etc/blackbox_exporter/blackbox.yml
 ```
 
-The content of configuration file:
+#### Copy/paste the contents below to the configuration file
 
-```
+```bash title=/etc/blackbox_exporter/blackbox.yml
 modules:
         icmp:
                 prober: icmp
@@ -295,21 +271,23 @@ modules:
                         preferred_ip_protocol: ipv4
 ```
 
-Change ownership of configuration file:
+#### Change ownership of configuration file:
 
 ```shell=
 sudo chown blackbox_exporter:blackbox_exporter /etc/blackbox_exporter/blackbox.yml
 ```
 
-#### Configure Service
+### 3.5 - Configure service
 
-```shell=
+#### Open the configuration file
+
+```
 sudo nano /etc/systemd/system/blackbox_exporter.service
 ```
 
-The content of service configuration file:
+#### Copy/paste the contents below to the configuration file
 
-```
+```bash title=/etc/systemd/system/blackbox_exporter.service
 [Unit]
 Description=Blackbox Exporter
 
@@ -324,48 +302,58 @@ ExecStart=/usr/local/bin/blackbox_exporter --config.file /etc/blackbox_exporter/
 WantedBy=multi-user.target
 ```
 
-Enable service:
+### 3.6 - Enable the service
 
 ```shell=
 sudo systemctl daemon-reload
 sudo systemctl start blackbox_exporter
 sudo systemctl enable blackbox_exporter
 ```
-## 4-4: Prometheus
+
+## Step 4 - Prometheus
+
+### 4.1 - Add a user
 
 ```shell=
 sudo adduser --system prometheus --group --no-create-home
 ```
 
-Identify latest version for `linux-amd64` [here](https://prometheus.io/download/), e.g. `2.34.0`. Install prometheus by replacing `{VERSION}` in the following:
+### 4.2 - Install
 
-```shell=
+As of this writing, the current version of Prometheus is 2.37.0 LTS
+
+Confirm the current version for `linux-amd64` [here](https://prometheus.io/download/)
+
+If a newer version exists, replace all occurrences of `2.37.0` with the new version number in the code box below.
+
+
+```
 cd
-wget https://github.com/prometheus/prometheus/releases/download/v{VERSION}/prometheus-{VERSION}.linux-amd64.tar.gz
-tar xzvf prometheus-{VERSION}.linux-amd64.tar.gz
-cd prometheus-{VERSION}.linux-amd64
+wget https://github.com/prometheus/prometheus/releases/download/v2.37.0/prometheus-2.37.0.linux-amd64.tar.gz
+tar xzvf prometheus-2.37.0.linux-amd64.tar.gz
+cd prometheus-2.37.0.linux-amd64
 sudo cp promtool /usr/local/bin/
 sudo cp prometheus /usr/local/bin/
 sudo chown root:root /usr/local/bin/promtool /usr/local/bin/prometheus
 sudo chmod 755 /usr/local/bin/promtool /usr/local/bin/prometheus
 cd
-rm prometheus-{VERSION}.linux-amd64.tar.gz
-rm -rf prometheus-{VERSION}.linux-amd64
+rm prometheus-2.37.0.linux-amd64.tar.gz
+rm -rf prometheus-2.37.0.linux-amd64
 ```
 
-#### Configure
+### 4.3 - Configure
 
 ```shell=
 sudo mkdir -p /etc/prometheus/console_libraries /etc/prometheus/consoles /etc/prometheus/files_sd /etc/prometheus/rules /etc/prometheus/rules.d
 ```
 
-Edit configuration file:
+#### Open the configuration file.
 
 ```shell=
 sudo nano /etc/prometheus/prometheus.yml
 ```
 
-The content of configuration file:
+#### Copy/paste the contents below to the configuration file.
 
 ```
 global:
@@ -435,7 +423,7 @@ scrape_configs:
       replacement: 127.0.0.1:7979
 ```
 
-Prepare data directory for prometheus:
+#### Prepare data directory for prometheus:
 
 ```shell=
 sudo chown -R prometheus:prometheus /etc/prometheus
@@ -444,21 +432,26 @@ sudo chown prometheus:prometheus /var/lib/prometheus
 sudo chmod 755 /var/lib/prometheus
 ```
 
-Open port to access to metrics. This is optional, only for external use:
+### 4.4 - Open port to access metrics.
+Opening this port allows access to prometheus metrics in the web browser of you personal computer while connected to the local network. Opening a port in this way poses a slight security risk. For an alternative see **coming soon**
+
+
+#### Open the port
 
 ```shell=
 sudo ufw allow 9090/tcp
 ```
+### 4.5 - Configure services
 
-#### Configure Service
+#### Open the configuration file
 
 ```shell=
 sudo nano /etc/systemd/system/prometheus.service
 ```
 
-The content of service configuration file:
+#### Copy/paste the contents below to the configuration file
 
-```
+```shell= title=/etc/systemd/system/prometheus.service
 [Unit]
 Description=Prometheus
 Wants=network-online.target

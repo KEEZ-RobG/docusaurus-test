@@ -49,12 +49,14 @@ ssh <node-user>@<node-ip> -p <ssh-port>
 exit
 ```
 
-#### Steps 1 - 3 Example
+Example of Steps 1 - 3
 ![1-3 Example](./img-p2/win01-03.gif)
 
 
 
 #### Step 4 - Generate SSH Keys
+SSH is more secure when using public/private keys instead of a password. In this step we will generate keys and send the public key to the node machine.
+
 
 ```sh
 ssh-keygen -t rsa -b 4096
@@ -71,6 +73,9 @@ Replace `<node-user>`, `<node-ip>`, and `<ssh-port>` with your information
 cat ~/.ssh/id_rsa.pub | ssh <node-user>@<node-ip> -p <ssh-port> "cat >> ~/.ssh/authorized_keys"
 ```
 
+Example of Steps 4 - 5
+![4-5 Example](./img-p2/win04-05.gif)
+
 #### Step 6: Simplify connection
 We will create a desktop icon to simplify logging into your node
 
@@ -81,7 +86,12 @@ wt ssh <node-user>@<node-ip> -p <ssh-port>
 ```
 3. Choose any name for the shortcut.
 
-You should now have an icon on your desktop that will automatcially open the SSH connection to your node machine.
+You should now have an icon on your desktop that will automatically opens the SSH connection to your node machine.
+
+4. Test the new icon. Notice how it asks for a passphrase instead of a password. This is the passphrase you chose when creating the SSH keys.
+
+Example of Step 6
+![6 Example](./img-p2/win06.gif)
 
 
 
@@ -93,13 +103,12 @@ You should now have an icon on your desktop that will automatcially open the SSH
 ## Configure Personal Device - Ubuntu
 The next steps will configure the client software on a personal device running Ubuntu. You will use this device to control your node remotely.
 
-#### Step 1: Connect to node (todo)
-
-
+#### Step 1 - Configure SSH client
 
 The SSH command requires the username, IP address, and port number of the node machine. 
 
 Simplify the SSH command by updating the SSH config file with your node credentials.
+
 ```
 nano ~/.ssh/config 
 ```
@@ -115,33 +124,42 @@ Host lukso
   HostName <node-ip>
   Port <ssh-port>
 ```
-
+#### Step 2 - Test connection
 Attempt to connect to verify the configuration:
 
 ```
 ssh lukso
 ```
 
+Disconnect
+
+```
+exit
+```
+
+
 #### Step 3: Generate SSH Keys
 
-SSH is more secure when using public/pricate keys instead of a password. In this step we well generate keys on your personal device and send the public key to the node machine.
+SSH is more secure when using public/private keys instead of a password. In this step we will generate keys on your personal device and send the public key to the node machine.
 
-On your **personal device**, create a new key pair for ssh authentication.
+Ensure you have disconnected from your node machine. On your **personal device**, create a new key pair for ssh authentication.
 
 ```
 ssh-keygen -t rsa -b 4096
 ```
 
-Copy the public key **keyname.pub** to a node machine. Replace **keyname.pub** with a key in home directory.
+Copy the public key to the node machine.
 
 ```
-ssh-copy-id -i ~/.ssh/keyname.pub lukso
+ssh-copy-id -i ~/.ssh/id_rsa.pub lukso
 ```
 
 Test key login.  This time it should not prompt for a password.
+
 ```
 ssh lukso
 ```
+
   </TabItem>
   <TabItem value="Windows" label="Windows (Putty)">
 Coming Soon
@@ -151,10 +169,11 @@ Coming Soon
   </TabItem>
 </Tabs>
 
-Remain connected and proceed to the next step
+Remain connected and proceed to Part 3
 
 ---
 References
+- [Vlad's Guide](https://github.com/lykhonis/lukso-node-guide#auto-start)
 - https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement
 - https://support.hostway.com/hc/en-us/articles/115001509884-How-To-Use-SSH-Keys-on-Windows-Clients-with-PuTTY-
 - https://www.how2shout.com/how-to/how-to-login-into-ubuntu-using-ssh-from-windows-10-8-7.html
