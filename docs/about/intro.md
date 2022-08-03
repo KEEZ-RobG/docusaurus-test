@@ -1,5 +1,5 @@
 ---
-title: 'About the guide'
+title: 'About'
 sidebar_position: 0
 slug: /
 ---
