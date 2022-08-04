@@ -2,7 +2,7 @@
 
 # Part 1 - Setup Node Machine
 
-Required equipment:
+Required equipment
 * USB Drive for Ubuntu Server installation
 * Node Machine
 * Personal computer
