@@ -12,7 +12,7 @@ import Admonition from '@theme/Admonition';
 This guide is in beta and not ready for use 
 :::
 
-# How to use THE guide
+# How to use The Guide
 
 ## User specific information
 
