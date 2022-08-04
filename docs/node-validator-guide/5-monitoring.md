@@ -482,9 +482,9 @@ sudo systemctl daemon-reload
 sudo systemctl start prometheus
 sudo systemctl enable prometheus
 ```
-## 4-5: Grafana
+## Step 5 - Grafana
 
-Install:
+### 5.1 - Install
 
 ```shell=
 cd
@@ -496,13 +496,14 @@ sudo apt-get update
 sudo apt-get install grafana-enterprise
 ```
 
-#### Configure Service
+### 5.2 - Configure Service
 
+#### Open the configuration file
 ```shell=
 sudo nano /lib/systemd/system/grafana-server.service
 ```
 
-The content of service configuration file:
+#### Copy/paste the contents below to the configuration file.
 
 ```
 [Unit]
