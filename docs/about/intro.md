@@ -8,7 +8,7 @@ slug: /
 
 ## LYXstaker
 
-LYXstaker is a community good unlocked by KEEZdao. KEEZ is a community DAO 
+
 
 Inspired by the [Ethstaker](https://ethstaker.cc/) community, whose motto is **"Welcoming first, knowledgeable second,"** LYXstaker is committed to
 - a friendly and welcoming environment
@@ -16,7 +16,9 @@ Inspired by the [Ethstaker](https://ethstaker.cc/) community, whose motto is **"
 - providing education
 - responsibility
 - developing fun initiates
-  
+
+LYXstaker is a community good unlocked by **KEEZdao** -- probably nothing.
+
 ## Docs
 
 LYXstaker docs strives to be a knowledge base of quality-controlled information authored by reputable members of the community. We feel it is important that guides are peer reviewed and come from a reputable source. Eventually, we would like to see an on-chain certification.

@@ -74,8 +74,8 @@ Using Server + remote SSH access from a personal computer instead of directly at
 2. Choose "Option 2 - Manual Installation"
 3. Choose "Download Ubuntu Server 22.04 LTS"
 4. Follow the guide on Ubuntu's website. Choose the appropriate guide below for your personal computer's operating system. You still start with step 3
-* [Windows guide](https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#3-usb-selection)
-* [macOS guide](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#3-prepare-the-usb-stick).
+* [Windows guide](https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#2-requirements)
+* [macOS guide](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#1-overview).
 
 
 
