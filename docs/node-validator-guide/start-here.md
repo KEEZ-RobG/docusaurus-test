@@ -1,5 +1,5 @@
 ---
-title: "Start Here"
+title: "The Guide 101"
 sidebar_position: 0
 
 ---
@@ -12,19 +12,16 @@ import Admonition from '@theme/Admonition';
 This guide is in beta and not ready for use 
 :::
 
-# How to use The Guide
 
-## User specific information
+## Before you begin
+Running a validator node is a highly technical task and a long term commitment. It's a responsibility to your investment and to the network. The network's **security and stability** depends on properly maintained nodes and validator software running 24/7. You will need to:
+- Monitor you node continuously
+- Be prepared to update your node whenever new client software is released
+- Be ready to learn
 
-Usernames, passwords, and IP addresses will differ for each user. The table below identifies these variables, the step where they are determined, and the syntax used to represent them in commands. Examples are provided in the next section.
+## Start Now
+L16 test net is live. If you are planning to run a validator for mainnet, start practicing ASAP!
 
-
-|Variable data     |Part/Section|Syntax        |
-|------------------|------------|--------------|
-|Node user name    | |`<node-user>` |
-|Node IP address   | |`<node-ip>`   |
-|Router IP address | |`<router-ip>` |
-|SSH port          | |`<ssh-port>`  |
 
 ## Codeblocks
 
@@ -34,12 +31,14 @@ example code block
 ```
 Hovering over the top right side of a code block reveals a copy icon, which allows you to copy the information without highlighting the text.
 
+![copy-button](./img-start/copy.gif)
+
 Codeblocks are used for
 - terminal commands
 - configuration files
 - examples
 
-Codeblock will have titles that indicate their use.
+Some codeblocks in this guide will have titles.
 
 ```sh title="Code block title"
 code block
@@ -65,23 +64,37 @@ Host lukso
 ```
 
 ### Example information
-Some codeblocks will be used for example of what a file should look like or commands that need use-specific data. They will be titled **Do not copy/paste**
+**Example:** some codeblocks will contain examples of what a file should look like.
 
 This block is for a step that requires modifying a configuration file. It shows you what the file should look like after you make the modification. In this example, we are instructed to find the `wifi.powersave` setting and change the value to `2`.
 
-```sh title="Example file - do not copy/paste"
+```sh title=Example
 [connection]
 wifi.powersave = 2
 ```
+## User specific information
 
-This block is a command that contains information specific to the individual user of the guide. In this example, a username and IP address is needed in the command.
+Username, router and node IP addresses, and SSH port will differ for each user. Commands that require this information will have placeholders that must be replaced with your specific information. 
 
-```sh title="User-specific command - do not copy/paste"
+This command needs the username and IP address of a node machine. The title will indicate the variables to replace.
+
+```sh title="Replace: <node-user>, and <node-ip>"
 ssh <node-user>@<node-ip>
 ```
 
-If `joe`'s IP address is `192.168.1.10` he would type the command `ssh joe@192.168.1.10`
+You can copy/paste these commands and edit them in the terminal before pressing `enter`. In this example, the username is `node` and the ip address is `192.168.0.150`
 
+![user-specific](./img-start/user-specific.gif)
+
+The table below is a cheat sheet that identifies how to determine these variables and how they appear in the code blocks.
+
+
+|Variable     |How to determine |Name        |
+|------------------|------------|--------------|
+|Node user name    | chosen during server/desktop install|`<node-user>` |
+|Node IP address   | execute the command `hostname -I` in terminal|`<node-ip>`   |
+|Router IP address | execute the command `ip route show default` |`<router-ip>` |
+|SSH port          | chosen in [Part 1 - 2.2](node-machine#22---change-ssh-port-number)|`<ssh-port>`  |
 
 ## Guide Order
 When using this guide to setup a node from start to finish, use the "next" button at the bottom of the pages to ensure you complete all steps and in the correct order.

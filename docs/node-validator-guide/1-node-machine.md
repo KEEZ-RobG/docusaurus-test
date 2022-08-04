@@ -2,7 +2,7 @@
 
 # Part 1 - Setup Node Machine
 
-equired equipment:
+Required equipment:
 * USB Drive for Ubuntu Server installation
 * Node Machine
 * Personal computer
@@ -100,7 +100,7 @@ sudo apt upgrade -y
 sudo apt install -y 
 ```
 
-5. Install the editor we will to make changes to files
+5. Install the Nano text editor.
 ```
 nano wget make git
 ```

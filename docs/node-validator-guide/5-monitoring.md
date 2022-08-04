@@ -564,43 +564,48 @@ Alias=grafana.service
 WantedBy=multi-user.target
 ```
 
-Enable service:
+### 5.3 - Enable service
 
 ```shell=
 sudo systemctl daemon-reload
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
 ```
-
-Open port to access to metrics. This is optional, only for external use:
+### 5.4 - Open port to access metrics.
+Opening this port allows access to grafana's dashboard in the web browser of you personal computer while connected to the local network. Opening a port in this way poses a slight security risk. For an alternative see **coming soon**
 
 ```shell=
 sudo ufw allow 3000/tcp
 ```
 
-#### Configure Dashboard
+### 5.5 - Configure Dashboard
 
-Login to grafana by navigating to webrowser `http://192.168.86.29:3000`. Replace `192.168.86.29` with IP of your node machine. This is same IP used to ssh.
+Login to grafana by opening a web browser `http://<node-ip>:3000`. Replace `<node-ip>` with IP of your node machine. This is same IP used to ssh.
 
-Default credentials are username and password `admin`. Set a new secure (long) password when prompted by grafana.
 
-##### Data Source
+```shell= title="Default credentials"
+username: username
+password: admin
+```
+ Set a new secure (long) password when prompted by grafana.
+
+#### Data Source
 
 1. On the left-hand menu, hover over the gear menu and click on `Data Sources`
 2. Then click on the Add Data Source button
 3. Hover over the Prometheus card on screen, then click on the Select button
 4. Enter http://127.0.0.1:9090/ into the URL field, then click Save & Test
 
-##### Install Dashboard
+#### Install Dashboard
 
 1. Hover over the plus symbol icon in the left-hand menu, then click on Import
-2. Copy and paste the dashboard **link** into the `Import via panel json` text box on the screen
+2. Copy and paste the [dashboard](https://github.com/LYXstaker/docs/blob/main/grafana/dashboard.json) into the `Import via panel json` text box on the screen
 3. Then click the Load button
 4. Then click the Import button
 
-##### Enable Alerts
+### 5.6 - Enable Alerts
 
-1. On the left-hand menu, hover over the alarm menue and click on `Notification channels`
+1. On the left-hand menu, hover over the alarm menu and click on `Notification channels`
 2. Click on `New channel`
 3. Select `Type` and [configure](https://grafana.com/docs/grafana/latest/alerting/old-alerting/notifications/)
 
@@ -611,14 +616,8 @@ On lukso dashboard:
 3. In `Alert` tab, select notifications `send to`
 4. Save and repeat for each alert
 ---
-https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/monitoring-your-validator-with-grafana-and-prometheus?q=grafana
-
-https://ethereum.org/en/developers/tutorials/monitoring-geth-with-influxdb-and-grafana/
-
-https://docs.prylabs.network/docs/prysm-usage/monitoring/grafana-dashboard
-
-
----
-Credits:
-https://github.com/remyroy/ethstaker/blob/main/monitoring.md
-https://github.com/lykhonis/lukso-node-guide#prometheus
+* [Vlad's Guide](https://github.com/lykhonis/lukso-node-guide#prometheus)
+* [CoinCashew](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/monitoring-your-validator-with-grafana-and-prometheus?q=grafana)
+* [Ethereum.org](https://ethereum.org/en/developers/tutorials/monitoring-geth-with-influxdb-and-grafana/)
+* [Prysm Docs](https://docs.prylabs.network/docs/prysm-usage/monitoring/grafana-dashboard)
+* [Ethstaker](https://github.com/remyroy/ethstaker/blob/main/monitoring.md)
