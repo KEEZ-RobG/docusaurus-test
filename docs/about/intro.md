@@ -17,8 +17,6 @@ Inspired by the [Ethstaker](https://ethstaker.cc/) community, whose motto is **"
 - responsibility
 - developing fun initiates
 
-LYXstaker is a community good unlocked by **KEEZdao** -- probably nothing.
-
 ## Docs
 
 LYXstaker docs strives to be a knowledge base of quality-controlled information authored by reputable members of the community. We feel it is important that guides are peer reviewed and come from a reputable source. Eventually, we would like to see an on-chain certification.
@@ -42,8 +40,8 @@ In no particular order
     - Security
     - Mitigation
 - Additional Grafana dashboards
-- Genesis Validator NFT (by KEEZ)
-- Cultural currency for contributors (by KEEZ)
+- Genesis Validator NFT
+- Cultural currency for contributors
 
 ---
 
